@@ -12,7 +12,7 @@ export async function getAllProduct() {
 export async function getSingleProduct(productId: string) {
     try {
         const response = await fetch(
-            `http://localhost:8000/api/products/${productId}`
+            `${process.env.SERVER_URL}/products/${productId}`
         );
 
         const result = await response.json();
