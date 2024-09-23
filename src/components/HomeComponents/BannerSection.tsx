@@ -30,12 +30,12 @@ const TechBanner = () => {
     },
   ];
 
-  // useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     setCurrentSlide((prev) => (prev + 1) % slides.length);
-  //   }, 9000);
-  //   return () => clearInterval(timer);
-  // }, []);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 9000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div className="relative overflow-hidden">
