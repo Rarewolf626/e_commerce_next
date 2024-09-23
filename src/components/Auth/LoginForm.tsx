@@ -37,7 +37,7 @@ const LoginForm = () => {
     try {
       const res = await loginUser(data);
 
-      if (res.data) {
+      if (res) {
         //  store user info in redux store:
         saveAccessTokenInLocalStorage(res.token);
         dispatch(
