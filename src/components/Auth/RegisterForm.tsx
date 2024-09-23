@@ -32,7 +32,7 @@ const RegisterForm = () => {
       const formData = convertFormData({ payload: payload, file: photo });
       const res = await createUser(formData);
       if (res) {
-        toast.message("User created successfully");
+        toast.message(res.message);
         setIsLoading(false);
         onClose();
         onOpen();
