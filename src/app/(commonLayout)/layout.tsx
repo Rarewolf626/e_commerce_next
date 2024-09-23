@@ -1,4 +1,5 @@
 import AuthModal from "@/components/Auth/AuthModal";
+import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
 import { Metadata } from "next";
 
@@ -19,6 +20,7 @@ export default function Layout({
         <AuthModal />
       </div>
       <main>{children}</main>
+      <Footer />
     </>
   );
 }

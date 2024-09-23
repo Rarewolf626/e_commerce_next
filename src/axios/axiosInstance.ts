@@ -24,7 +24,7 @@ export type GenericErrorProps = {
 // utils/axiosInstance.ts
 
 const axiosInstance = axios.create({
-    baseURL: process.env.SERVER_URL,
+    baseURL: "https://gadget-e-commerce-2024.onrender.com/api",
     withCredentials: true,
 });
 
@@ -65,7 +65,7 @@ axiosInstance.interceptors.response.use(
 
                 // Request to refresh the token
                 const refreshResponse = await axios.get(
-                    `${process.env.SERVER_URL}/auth/refresh-token`,
+                    `https://gadget-e-commerce-2024.onrender.com/api/auth/refresh-token`,
 
                     {
                         withCredentials: true,

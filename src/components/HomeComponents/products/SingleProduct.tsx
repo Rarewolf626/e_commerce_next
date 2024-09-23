@@ -5,7 +5,7 @@ import { Star, ShoppingCart, Heart, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-import { useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { addItemToCart } from "@/redux/slices/addToCart.slice";
 import useLoginStore from "@/components/hooks/useLoginStore";
 import { toast } from "sonner";
@@ -14,7 +14,7 @@ export default function SingleProduct({ product }: { product: any }) {
   const [quantity, setQuantity] = useState(1);
   const dispatch = useAppDispatch();
   const { onOpen } = useLoginStore();
-  const user = false; // delete it
+  const user = useAppSelector((state) => state.auth.auth?.token); // delete it
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
