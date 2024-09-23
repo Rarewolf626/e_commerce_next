@@ -14,12 +14,15 @@ import { createUser } from "@/actions/auth.action";
 import { toast } from "sonner";
 import { useState } from "react";
 import LoadingButton from "../helperComponets/LoadingButton";
+import { saveAccessTokenInLocalStorage } from "@/helperUtils/localstorage";
+import { useAppDispatch } from "@/redux/hooks";
+import { addUser } from "@/redux/slices/auth.slice";
 
 const RegisterForm = () => {
   const { isOpen, onClose } = useRegisterStore();
   const { onOpen } = useLoginStore();
   const [isLoading, setIsLoading] = useState(false);
-
+  const dispatch = useAppDispatch();
   const handleLoginModelOpen = () => {
     onClose();
     onOpen();
@@ -32,6 +35,13 @@ const RegisterForm = () => {
       const formData = convertFormData({ payload: payload, file: photo });
       const res = await createUser(formData);
       if (res.data) {
+        saveAccessTokenInLocalStorage(res.token);
+        dispatch(
+          addUser({
+            token: res.token,
+            user: res.data,
+          })
+        );
         toast.message("User created successfully");
         setIsLoading(false);
         onClose();
