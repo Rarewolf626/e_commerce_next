@@ -35,7 +35,6 @@ const RegisterForm = () => {
         toast.message("User created successfully");
         setIsLoading(false);
         onClose();
-        onOpen();
       } else {
         toast.message(res.message);
         setIsLoading(false);
