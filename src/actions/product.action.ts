@@ -6,6 +6,7 @@ export async function getAllProduct() {
         return res.data;
     } catch (error) {
         return error;
+        // logi
     }
 }
 
